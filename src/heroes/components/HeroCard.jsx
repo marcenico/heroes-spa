@@ -11,14 +11,14 @@ export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance
   return (
     <>
       <div className="col">
-        <div className="card ms-3" style={{ width: '18rem' }}>
-          <div className="row no-gutters">
+        <div className="card">
+          <div className="row g-0">
             <div className="col-4">
               <img src={heroImageUrl} className="card-img" alt={superhero} />
             </div>
 
             <div className="col-8">
-              <div className="card-body">
+              <div className="d-flex flex-column card-body h-100">
                 <h5 className="card-title">{superhero}</h5>
                 <p className="card-text">{alter_ego}</p>
 
@@ -28,7 +28,9 @@ export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance
                   <small className="text-muted">{first_appearance}</small>
                 </p>
 
-                <Link to={`/hero/${id}`}>Más...</Link>
+                <Link className="mt-auto align-self-end" to={`/hero/${id}`}>
+                  Más...
+                </Link>
               </div>
             </div>
           </div>
