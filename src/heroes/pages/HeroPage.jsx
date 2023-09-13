@@ -15,10 +15,10 @@ export const HeroPage = () => {
 
   return (
     <div className="row mt-5">
-      <div className="col-4">
-        <img src={`/assets/heroes/${id}.jpg`} className="img-thumbnail " alt={hero.superhero} />
+      <div className="col-4 animate__animated animate__fadeInLeft">
+        <img src={`/assets/heroes/${id}.jpg`} className="img-thumbnail" alt={hero.superhero} />
       </div>
-      <div className="col-8">
+      <div className="col-8 animate__animated animate__fadeInRight">
         <h3>{hero.superhero}</h3>
 
         <ul className="list-group list-group-flush">
