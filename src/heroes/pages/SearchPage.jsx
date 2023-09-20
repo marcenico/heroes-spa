@@ -1,5 +1,5 @@
 import queryString from 'query-string';
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hook/useForm';
 import { HeroCard } from '../components';
@@ -11,13 +11,16 @@ export const SearchPage = () => {
   const { q = '' } = queryString.parse(location.search);
   const heroes = getHeroByName(q);
 
+  const showSearch = q.length === 0;
+
   const { searchText, onInputChange } = useForm({
     searchText: q
   });
 
+  const showError = q.length > 0 && heroes.length === 0;
+
   const onSearchSubmit = (event) => {
     event.preventDefault();
-    if (searchText.trim().length <= 1) return; // No search text with less than 2 characters
 
     navigate(`?q=${searchText}`);
   };
@@ -51,10 +54,16 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
 
-          <div className="alert alert-primary">Search a hero</div>
+          <div
+            className="alert alert-primary animate__animated animate__fadeIn"
+            style={{ display: !showSearch && 'none' }}>
+            Search a hero
+          </div>
 
-          <div className="alert alert-danger">
-            No hero found with <b>{q}</b>
+          <div
+            className="alert alert-danger animate__animated animate__fadeIn"
+            style={{ display: !showError && 'none' }}>
+            No hero with <b>{q}</b>
           </div>
 
           {heroes.map((hero) => (
