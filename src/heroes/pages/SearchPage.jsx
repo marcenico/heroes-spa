@@ -34,7 +34,7 @@ export const SearchPage = () => {
         <div className="col-5">
           <h4>Searching</h4>
           <hr />
-          <form onSubmit={onSearchSubmit}>
+          <form data-testid="form" onSubmit={onSearchSubmit}>
             <input
               className="form-control"
               name="searchText"
