@@ -47,6 +47,7 @@ exports[`Pruebas en <SearchPage /> debe de mostrar el componente correctamente c
       </div>
       <div
         class="alert alert-danger animate__animated animate__fadeIn"
+        data-testid="alert-danger"
         style="display: none;"
       >
         No hero with 
