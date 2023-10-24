@@ -16,7 +16,9 @@ exports[`Pruebas en <SearchPage /> debe de mostrar el componente correctamente c
         Searching
       </h4>
       <hr />
-      <form>
+      <form
+        data-testid="form"
+      >
         <input
           autocomplete="off"
           class="form-control"
